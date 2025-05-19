@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 import { config } from 'dotenv';
 import { Queue, Worker } from 'bullmq';
 import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
@@ -15,6 +16,12 @@ config();
 
 const app = express();
 app.use(cors());
+
+// Ensure uploads directory exists
+const uploadDir = './uploads';
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
 
 // ----------------- Multer Config -------------------
 const storage = multer.diskStorage({
