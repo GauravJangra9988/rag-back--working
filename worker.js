@@ -3,7 +3,6 @@ import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 import { config } from 'dotenv';
 import { Queue, Worker } from 'bullmq';
 import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
@@ -11,16 +10,17 @@ import { CharacterTextSplitter } from '@langchain/textsplitters';
 import { CohereEmbeddings } from '@langchain/cohere';
 import { QdrantVectorStore } from '@langchain/qdrant';
 import { GoogleGenAI } from '@google/genai';
+import fs from 'fs';
+
 
 config();
 
 const app = express();
 app.use(cors());
 
-// Ensure uploads directory exists
-const uploadDir = './uploads';
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir);
+const uploadsDir = './uploads';
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
 }
 
 // ----------------- Multer Config -------------------
