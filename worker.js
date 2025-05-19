@@ -10,18 +10,11 @@ import { CharacterTextSplitter } from '@langchain/textsplitters';
 import { CohereEmbeddings } from '@langchain/cohere';
 import { QdrantVectorStore } from '@langchain/qdrant';
 import { GoogleGenAI } from '@google/genai';
-import fs from 'fs';
-
 
 config();
 
 const app = express();
 app.use(cors());
-
-const uploadsDir = './uploads';
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir);
-}
 
 // ----------------- Multer Config -------------------
 const storage = multer.diskStorage({
