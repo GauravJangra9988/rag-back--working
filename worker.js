@@ -38,9 +38,9 @@ const upload = multer({ storage });
 
 // ----------------- Redis Queue ---------------------
 const redisConnection = {
-  host: 'relaxing-goldfish-15926.upstash.io',
+  host: 'pro-stork-52597.upstash.io',
   port: 6379,
-  password: 'AT42AAIjcDFjODZlNWY4NzFiNTQ0MmNkOWJhNTFiYzE5YjgzODA3YXAxMA',
+  password: 'Ac11AAIjcDEzM2NjYjgyYThiOTU0YTYzYmFlYThjOTIwOTUxYjgwOXAxMA',
   tls: {},
 };
 
